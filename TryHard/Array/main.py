@@ -10,4 +10,4 @@ for i in range(n):
 
 # In giá trị có trong mảng
 for i in range(len(a)):
-    print("a[",i,"]= ",a[i])    
+    print(a[i]) 
