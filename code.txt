@@ -5,3 +5,5 @@ pyuic6 -x v.ui -o v.py
 
 django-admin startproject webbanhang
 django-admin startapp app
+
+pip install mysql-connector-python
