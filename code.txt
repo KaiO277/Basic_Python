@@ -1,0 +1,3 @@
+python manage.py runserver
+pyinstaller --onefile -w --icon=dinosaur.ico dino.py
+pyuic6 -x v.ui -o v.py
