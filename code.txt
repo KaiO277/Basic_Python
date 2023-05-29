@@ -1,3 +1,7 @@
 python manage.py runserver
+python manage.py migrate
 pyinstaller --onefile -w --icon=dinosaur.ico dino.py
 pyuic6 -x v.ui -o v.py
+
+django-admin startproject webbanhang
+django-admin startapp app
