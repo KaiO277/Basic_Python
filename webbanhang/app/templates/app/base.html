@@ -75,7 +75,9 @@
               </ul>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Giỏ hàng</a>
+              <a class="nav-link" href="{% url 'cart' %}">
+                <img src="{% static 'app/images/cart.png' %}" alt="" height="30">
+              </a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="#">Đăng nhập/Đăng ký</a>
@@ -86,6 +88,10 @@
       {% block banner_slider %}{% endblock banner_slider %}
       <!-- main body -->
       {% block main-content %}{% endblock main-content %}
+      
+      {% block cart_content %}{% endblock cart_content %}
+
+      {% block content_checkout %}{% endblock content_checkout %}
        <!-- footer -->
        <!-- Footer -->
 <footer class="text-center text-lg-start bg-light text-muted container-fluid ">

@@ -7,3 +7,5 @@ django-admin startproject webbanhang
 django-admin startapp app
 
 pip install mysql-connector-python
+
+python manage.py createsuperuser
