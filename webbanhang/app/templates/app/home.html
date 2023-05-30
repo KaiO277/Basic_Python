@@ -49,58 +49,21 @@
   </div>
 {% endblock banner_slider %}
 {% block main-content %}
-    <div class="row">
-        <div class="col-lg-3">
-            <img src="{% static 'app/images/cow-ghee.png' %}" class="thumbnail">
+    <div class="row" style="width:100%">
+      {% for product in products %}
+        <div class="col-lg-3" >
+            <img src="{{ product.ImageUrl }}" class="thumbnail" style="width:100%">
             <div class="box-element product">
-                <h6><strong>Sản phẩm</strong></h6>
+                <h6><strong>{{ product.name }}</strong></h6>
                 <hr>
 
                 <button class="btn btn-outline-secondary add-btn">
                     <img src="{% static 'app/images/shopping-cart.svg' %}">
                 </button>
                 <a href="#" class="btn btn-outline-success">Xem</a>
-                <h4 style="display: inline-block; float: right"> <strong>200.000 VNĐ</strong></h4>
+                <h4 style="display: inline-block; float: right"> <strong>${{ product.price | floatformat:2 }}</strong></h4>
             </div>
         </div>
-        <div class="col-lg-3">
-            <img src="{% static 'app/images/cow-ghee.png' %}" class="thumbnail">
-            <div class="box-element product">
-                <h6><strong>Sản phẩm</strong></h6>
-                <hr>
-
-                <button class="btn btn-outline-secondary add-btn">
-                    <img src="{% static 'app/images/shopping-cart.svg' %}">
-                </button>
-                <a href="#" class="btn btn-outline-success">Xem</a>
-                <h4 style="display: inline-block; float: right"> <strong>200.000 VNĐ</strong></h4>
-            </div>
-        </div>
-        <div class="col-lg-3">
-            <img src="{% static 'app/images/cow-ghee.png' %}" class="thumbnail">
-            <div class="box-element product">
-                <h6><strong>Sản phẩm</strong></h6>
-                <hr>
-
-                <button class="btn btn-outline-secondary add-btn">
-                    <img src="{% static 'app/images/shopping-cart.svg' %}">
-                </button>
-                <a href="#" class="btn btn-outline-success">Xem</a>
-                <h4 style="display: inline-block; float: right"> <strong>200.000 VNĐ</strong></h4>
-            </div>
-        </div>
-        <div class="col-lg-3">
-            <img src="{% static 'app/images/cow-ghee.png' %}" class="thumbnail">
-            <div class="box-element product">
-                <h6><strong>Sản phẩm</strong></h6>
-                <hr>
-
-                <button class="btn btn-outline-secondary add-btn">
-                    <img src="{% static 'app/images/shopping-cart.svg' %}">
-                </button>
-                <a href="#" class="btn btn-outline-success">Xem</a>
-                <h4 style="display: inline-block; float: right"> <strong>200.000 VNĐ</strong></h4>
-            </div>
-        </div>
+        {% endfor %}  
     </div>
 {% endblock main-content %}

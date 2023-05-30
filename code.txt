@@ -9,3 +9,7 @@ django-admin startapp app
 pip install mysql-connector-python
 
 python manage.py createsuperuser
+
+python manage.py makemigrations
+
+pip install pillow
