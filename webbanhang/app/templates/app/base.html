@@ -47,8 +47,8 @@
     <!-- Header -->
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container-fluid">
-          <a class="navbar-brand" href="#">
-            <img src="{% static 'app/images/Neel.png' %}" alt="" srcset="" width="50" height="50">
+          <a class="navbar-brand" href="{% url 'home' %}">
+            <img src="{% static 'app/images/Neel.png' %}" alt="" id="cart-icon">
           </a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -56,7 +56,7 @@
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#">Trang chủ</a>
+                <a class="nav-link active" aria-current="page" href="{% url 'home' %}">Trang chủ</a>
               </li>
               
               <li class="nav-item dropdown">
@@ -93,16 +93,21 @@
                 <li><a class="dropdown-item" href="#">Đơn hàng</a></li>
                 <li><a class="dropdown-item" href="#">Thoát</a></li>
               </ul>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="{% url 'cart' %}">
-                <img src="{% static 'images/images/cart.png' %}" alt="" height="30">
-              </a>
-            </li>
+            </li>          
             <li class="nav-item">
               <a class="nav-link" href="#">Đăng nhập/Đăng ký</a>
             </li>
           </ul>
+          
+          <!-- <div class="cart">
+            <a  href="{% url 'cart' %}"><img  class="fa fa-shopping-cart" src="{% static 'images/images/cart.png' %}"></a>
+            <span class="cart-count">3</span>
+          </div> -->
+          <div class="form-inline my-2 my-lg-0">
+            <a href="{% url 'cart' %}"><img  id="cart-icon" src="{% static 'images/images/cart.png' %}"></a>
+            
+          </div>
+          <p  id="cart-total"> {{ cartItems }}</p>
         </div>
       </nav>
       {% block banner_slider %}{% endblock banner_slider %}
