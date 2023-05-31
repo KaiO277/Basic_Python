@@ -16,8 +16,28 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.min.js" integrity="sha384-Y4oOpwW3duJdCWv5ly8SCFYWqFDsfob/3GkgExXKV4idmbt98QcxXYs9UoXAB7BZ" crossorigin="anonymous"></script>
   
     <script src="{% static 'app/js/all.min.js' %}"></script>
-    <script src="{% static 'app/js/myscrip.js' %}"></script>
+    
+    <script src="{% static 'app/js/myscript.js' %}"></script>
     <script src="{% static 'app/js/owl.carousel.min.js' %}"></script>
+    <script type="text/javascript">
+      var user = '{{request.user}}'
+      function getCookie(name) {
+            let cookieValue = null;
+            if (document.cookie && document.cookie !== '') {
+                const cookies = document.cookie.split(';');
+                for (let i = 0; i < cookies.length; i++) {
+                    const cookie = cookies[i].trim();
+                    // Does this cookie string begin with the name we want?
+                    if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                        cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                        break;
+                    }
+                }
+            }
+            return cookieValue;
+        }
+        const csrftoken = getCookie('csrftoken');
+    </script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="{% static 'app/images/Neel.png' %}">
    
@@ -76,7 +96,7 @@
             </li>
             <li class="nav-item">
               <a class="nav-link" href="{% url 'cart' %}">
-                <img src="{% static 'app/images/cart.png' %}" alt="" height="30">
+                <img src="{% static 'images/images/cart.png' %}" alt="" height="30">
               </a>
             </li>
             <li class="nav-item">
@@ -215,5 +235,6 @@
   <!-- Copyright -->
 </footer>
 <!-- Footer -->
+<script src="{% static 'app/js/cart.js' %}"></script>
 </body>
 </html>

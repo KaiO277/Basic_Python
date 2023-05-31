@@ -51,14 +51,17 @@
 {% block main-content %}
     <div class="row" style="width:100%">
       {% for product in products %}
-        <div class="col-lg-3" >
-            <img src="{{ product.ImageUrl }}" class="thumbnail" style="height:100%">
+        <div class="col-lg-3" style="justify-content: center;" >
+            {% comment %} <img src="{{ product.ImageUrl }}" class="thumbnail" > {% endcomment %}
+            <div class="khung-san-pham">
+              <img src="{{ product.ImageUrl }}" class="anh-san-pham">
+            </div>
             <div class="box-element product">
                 <h6><strong>{{ product.name }}</strong></h6>
                 <hr>
 
-                <button class="btn btn-outline-secondary add-btn">
-                    <img src="{% static 'app/images/shopping-cart.svg' %}">
+                <button data-product={{product.id}} data-action="add" class="btn btn-outline-secondary add-btn update-cart">
+                    <img src="{% static 'images/images/shopping-cart.svg' %}">
                 </button>
                 <a href="#" class="btn btn-outline-success">Xem</a>
                 <h4 style="display: inline-block; float: right"> <strong>${{ product.price | floatformat:2 }}</strong></h4>
