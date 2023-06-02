@@ -83,26 +83,17 @@
               <button class="btn btn-outline-success" type="submit">Search</button>
             </form>
           </div>
-          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                User 1
-              </a>
-              <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="#">Trang cá nhân</a></li>
-                <li><a class="dropdown-item" href="#">Đơn hàng</a></li>
-                <li><a class="dropdown-item" href="#">Thoát</a></li>
-              </ul>
-            </li>          
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">      
+            <li class="nav-item">   
+              <p class="nav-link active">Hello, {{request.user}}</p>                                      
+            </li>       
             <li class="nav-item">
-              <a class="nav-link" href="{% url 'login' %}">Đăng nhập/Đăng ký</a>
+              <a class="nav-link active" href="{% url 'login' %}">Đăng nhập/Đăng ký</a>
             </li>
-          </ul>
-          
-          <!-- <div class="cart">
-            <a  href="{% url 'cart' %}"><img  class="fa fa-shopping-cart" src="{% static 'images/images/cart.png' %}"></a>
-            <span class="cart-count">3</span>
-          </div> -->
+            <li class="nav-item">
+              <a class="nav-link active" href="{% url 'logout' %}">Logout</a>
+            </li>
+          </ul>      
           <div class="form-inline my-2 my-lg-0">
             <a href="{% url 'cart' %}"><img  id="cart-icon" src="{% static 'images/images/cart.png' %}"></a>
             
