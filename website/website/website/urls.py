@@ -24,3 +24,6 @@ urlpatterns = [
     path('rooms/', include('members.urls')),
     path('', include('members.urls')),
 ]
+
+urlpatterns = urlpatterns+static(settings.MEDIA_URL, 
+                                 document_root = settings.MEDIA_ROOT)
