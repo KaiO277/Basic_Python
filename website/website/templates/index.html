@@ -73,7 +73,7 @@
                                                 <path d="M9 13h2v5a1 1 0 11-2 0v-5z" />
                                             </svg>
                                         </div>
-                                        <form action="upload" method="POST" enctype="multipart/form-data" >
+                                        <form action="upload/" method="POST" enctype="multipart/form-data" >
                                             {% csrf_token %}
                                             <p class="my-3 leading-6"> Upload pics
                                             </p>
@@ -189,19 +189,21 @@
                     <!-- left sidebar-->
                     <div class="space-y-5 flex-shrink-0 lg:w-7/12">
 
-                        <!-- post 1-->
+                        {% for post in posts %}
+
                         <div class="bg-white shadow rounded-md  -mx-2 lg:mx-0">
     
                             <!-- post header-->
                             <div class="flex justify-between items-center px-4 py-3">
                                 <div class="flex flex-1 items-center space-x-4">
-                                    <a href="#">
+                                    {% comment %} <a href="#">
                                         <div class="bg-gradient-to-tr from-yellow-600 to-pink-600 p-0.5 rounded-full">  
                                             <img src="{% static 'assets/images/avatars/avatar-2.jpg' %}" class="bg-gray-200 border border-white rounded-full w-8 h-8">
                                         </div>
-                                    </a>
-                                    <span class="block capitalize font-semibold "> tomi_ml </span>
+                                    </a> {% endcomment %}
+                                    <span class="block capitalize font-semibold "> {{post.user}} </span>
                                 </div>
+                                
                               <div>
                                 <a href="#"> <i class="icon-feather-more-horizontal text-2xl hover:bg-gray-200 rounded-full p-2 transition -mr-1 "></i> </a>
                                 <div class="bg-white w-56 shadow-md mx-auto p-2 mt-12 rounded-md text-gray-500 hidden text-base border border-gray-100  " uk-drop="mode: hover;pos: top-right">
@@ -240,10 +242,12 @@
                                 </div>
                               </div>
                             </div>
-    
+                            <p>
+                                <b>{{post.user}}</b> : {{post.caption}}
+                            </p>
                             <div uk-lightbox>
-                                <a href="{% static 'assets/images/post/img4.jpg' %}">  
-                                    <img src="{% static 'assets/images/post/img4.jpg' %}" alt="">
+                                <a href="{{ post.image.url}}">  
+                                    <img src="{{ post.image.url }}" alt="">
                                 </a>
                             </div>
                             
@@ -317,8 +321,12 @@
                             </div>
     
                         </div>
+
+                        {% endfor %}
+                        <!-- post 1-->
+                        
     
-                        <!-- post 2-->                       
+                        {% comment %} <!-- post 2-->                       
                     
                         <div class="bg-white shadow rounded-md  -mx-2 lg:mx-0">
     
@@ -730,7 +738,7 @@
                             <a href="#"
                                 class="bg-white  font-semibold my-3 px-6 py-2 rounded-full shadow-md  ">
                                 Load more ..</a>
-                        </div>
+                        </div> {% endcomment %}
 
 
                     </div>
