@@ -42,6 +42,7 @@ def settings(request):
 
   return render(request, 'setting.html', {'user_profile': user_profile})
 
+@login_required(login_url='signin')
 def like_post(request):
    username = request.user.username
    post_id = request.GET.get('post_id')
@@ -61,7 +62,11 @@ def like_post(request):
       post.no_of_likes = post.no_of_likes-1
       post.save()
       return redirect('/')
-   
+
+@login_required(login_url='signin')
+def profile(request, pk):
+   username = pk 
+   return render(request, 'profile.html',{'username':username})
 
 @login_required(login_url='signin')
 def upload(request):
@@ -128,7 +133,6 @@ def signup(request):
         
     else:
         return render(request, 'signup.html')
-
   
 @login_required(login_url='signin')  
 def logout(request):
