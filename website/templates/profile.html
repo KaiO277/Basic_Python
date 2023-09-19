@@ -34,8 +34,19 @@
 					<span style="color: white; font-size: 27px;"><b>{{user_posts_length}} Post</b></span>
 					<span style="color: white; font-size: 27px;"><b>1.7m followers</b></span>
 					<span style="color: white; font-size: 27px;"><b>3.5k following</b></span>
-					<a href="" title="" data-ripple=""><button type="submit" style="background-color: #ffc0cb; border: #ffc0cb;">Follow</button></a>
+
+					<input type="hidden" name="followers" value="{{user.username}}"/>
+					<input type="hidden" name="user" value="{{user_object.username}}"/>
 					
+					{% if  user_object.username == user.username %}
+					<a data-ripple="" href="/settings">
+						<button type="button" style="background-color: #ffc0cb; border: #ffc0cb;">Account Setting</button>
+					</a>
+					{% else %}
+					<a data-ripple="">
+						<button type="submit" style="background-color: #ffc0cb; border: #ffc0cb;">Follow</button>
+					</a>
+					{% endif %}
 					</div>
 				</form>
 
